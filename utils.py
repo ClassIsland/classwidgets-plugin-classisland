@@ -2,10 +2,24 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 from zipfile import ZipFile
 import requests
+import platform
 
 def get_classisland_path():
+    system = platform.system()
     home_dir = os.path.expanduser("~")
-    return os.path.join(home_dir, "ClassIsland")
+    
+    if system == "Windows":
+        if os.path.exists("D:"):
+            return "D:\\ClassIsland"
+        else:
+            return os.path.join(home_dir, "Documents", "ClassIsland")
+    else:
+        documents_path = os.path.join(home_dir, "Documents")
+        if os.path.exists(documents_path):
+            return os.path.join(documents_path, "ClassIsland")
+        else:
+            return os.path.join(home_dir, "ClassIsland")
+
 
 def download_file(url, dest_path):
     response = requests.get(url, stream=True)
