@@ -6,6 +6,7 @@ from loguru import logger
 from .utils import download_and_extract_classisland 
 import sys
 import os
+from .installer import Installer
 
 class Plugin:
     def __init__(self, cw_contexts, method):
@@ -14,10 +15,8 @@ class Plugin:
 
         self.CONFIG_PATH = f'{cw_contexts["PLUGIN_PATH"]}/config.json'
         self.PATH = cw_contexts['PLUGIN_PATH']
+        self.installer_ui = Installer()
 
     def execute(self):
         """首次执行"""
-        classisland_dir = download_and_extract_classisland()
-        print("ClassIsland安装成功.")
-        os.system(classisland_dir)
-        sys.exit(0)
+        self.installer_ui.show()
