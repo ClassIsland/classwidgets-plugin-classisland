@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>465</width>
+    <width>467</width>
     <height>206</height>
    </rect>
   </property>
@@ -20,7 +20,9 @@
    <string>ClassIsland 安装助手</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: rgb(255, 255, 255);</string>
+   <string notr="true">background: rgb(255, 255, 255);
+font: 28px &quot;Harmony Sans&quot;;
+</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -93,6 +95,10 @@
        </item>
        <item>
         <widget class="QLabel" name="label_3">
+         <property name="styleSheet">
+          <string notr="true">font-size:12px
+</string>
+         </property>
          <property name="text">
           <string>这可能需要 3~5 分钟。请勿关闭 ClassWidgets。</string>
          </property>

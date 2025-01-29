@@ -6,6 +6,12 @@ from PyQt5.QtCore import Qt, QThread, pyqtSignal
 from .installer_ui import Ui_Form
 from .utils import get_classisland_path, download_and_extract_classisland
 from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtGui import QFontDatabase, QFont
+from . import installer_ui_rc  # 此处直接导入qrc转换后的py文件
+
+fontDb = QFontDatabase()
+fontID = fontDb.addApplicationFont(":/HarmonyOS_Sans_SC_Regular.ttf")  # 此处的路径为qrc文件中的字体路径
+fontFamilies = fontDb.applicationFontFamilies(fontID)
 
 class DownloadThread(QThread):
     progress = pyqtSignal(int)
@@ -16,10 +22,10 @@ class DownloadThread(QThread):
 class Installer(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
+        self.setFont(QFont('Harmony Sans'))
         self.setupUi(self)
         self.setWindowFlags(Qt.Window | Qt.WindowMinimizeButtonHint | Qt.CustomizeWindowHint)
         self.setFixedSize(self.size())
-
         if not self.is_supported_os():
             QMessageBox.critical(self, "不支持的操作系统", "该计算机不支持ClassIsland。")
             self.close()

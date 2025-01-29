@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>HarmonyOS_Sans_SC_Regular.ttf</file>
     <file>icon.png</file>
   </qresource>
 </RCC>
