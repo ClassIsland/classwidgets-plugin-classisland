@@ -29,7 +29,7 @@ class Installer(QWidget, Ui_Form):
         if os.path.exists(exe_path):
             self.progressBar.setValue(100)
             subprocess.Popen([exe_path])
-            sys.exit(0)
+            # sys.exit(0)
         else:
             self.progressBar.setValue(0)
             self.download_thread = DownloadThread()
