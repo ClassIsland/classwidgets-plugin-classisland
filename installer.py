@@ -23,7 +23,7 @@ class Installer(QWidget, Ui_Form):
         if not self.is_supported_os():
             QMessageBox.critical(self, "不支持的操作系统", "该计算机不支持ClassIsland。")
             self.close()
-            sys.exit(0)
+            # sys.exit(0)
 
         exe_path = os.path.join(get_classisland_path(), "ClassIsland.exe")
         if os.path.exists(exe_path):
